@@ -18,7 +18,7 @@ public with sharing class OpenAICalloutHandler extends ApiCalloutHandler {
         return response;
     }
 
-    public override Object handleResponse(HttpResponse response){
+    public override void handleResponse(HttpResponse response){
 
         Map<String, Object> responseMap = new Map<String, Object>();
         
@@ -55,6 +55,7 @@ public with sharing class OpenAICalloutHandler extends ApiCalloutHandler {
             }
             
             Database.insert(problemsToInsert, true);
+            Logger.info('Problem records inserted: ' + problemsToInsert);
 
             // Map to store problem names and their corresponding IDs
             Map<String, Id> problemIdMap = new Map<String, Id>();
@@ -97,14 +98,14 @@ public with sharing class OpenAICalloutHandler extends ApiCalloutHandler {
             }
         // Insert child Answer and Resource records
         Database.insert(answersToInsert, false);
+        Logger.info('Answer records inserted: ' + answersToInsert);
         Database.insert(resourcesToInsert, false);    
+        Logger.info('Resource records inserted:' + resourcesToInsert);
             
         } else {
             throw new OpenAICalloutHandlerException('Error: Received status code ' + response.getStatusCode());
         }
-        return null;
-
-        //TODO: ApiService is calls handleResponse and is expecting ApiResponse to be returned. Is ApiResponse necessary?
+        Logger.saveLog();
     }
 
     /**

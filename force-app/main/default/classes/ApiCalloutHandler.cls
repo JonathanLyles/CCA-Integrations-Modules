@@ -6,7 +6,7 @@
 
 public abstract class ApiCalloutHandler {
     public abstract HttpResponse makeCallout(HttpRequest request);
-    public abstract Object handleResponse(HttpResponse response);
+    public abstract void handleResponse(HttpResponse response);
 
     // Shared method for logging requests
     public void logRequest(HttpRequest request){

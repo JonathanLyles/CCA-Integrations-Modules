@@ -6,10 +6,10 @@
 
 public with sharing class ApiService {
 
-    public static ApiResponse execute(String apiName, HttpRequest request ){
+    public static void execute(String apiName, HttpRequest request ){
         
         ApiCalloutHandler handler = ApiHandlerFactory.getHandler(apiName);
         HttpResponse response = handler.makeCallout(request);
-        return (ApiResponse) handler.handleResponse(response);
+        handler.handleResponse(response);
     }
 }
