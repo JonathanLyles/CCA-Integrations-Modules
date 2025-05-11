@@ -7,13 +7,6 @@
 
 public with sharing class OpenAICompletionCallout {
 
-    /**
-     * @description 
-     * 
-     */
-    public class OpenAICompletionCalloutException extends Exception{}
-
-
     public OpenAICompletionCallout() {
 
     }
@@ -24,7 +17,7 @@ public with sharing class OpenAICompletionCallout {
         HttpRequest request = new HttpRequest();
         request.setMethod('POST');
         request.setEndpoint('callout:OpenAICompletions');
-        request.setTimeout(20000);
+        request.setTimeout(30000);
         String payload = '{' +
             '"model": "gpt-4.1",' +
             '"messages": [' +
@@ -50,6 +43,6 @@ public with sharing class OpenAICompletionCallout {
             throw new OpenAICompletionCalloutException('An error occurred while making the HTTP callout: ' + e.getMessage());
         }
     }
-}
 
-//TODO: THIS ERROR - 23:33:58.134 (10140456830)|EXCEPTION_THROWN|[1]|OpenAICompletionCallout.OpenAICompletionCalloutException: An error occurred while making the HTTP callout: Read timed out
+    public class OpenAICompletionCalloutException extends Exception{}
+}

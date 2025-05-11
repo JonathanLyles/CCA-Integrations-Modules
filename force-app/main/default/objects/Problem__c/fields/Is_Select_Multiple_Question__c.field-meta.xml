@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Select_Multiple_Question__c</fullName>
+    <formula>Select_Multiple_Answers__c &gt; 1</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Select Multiple Question</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
