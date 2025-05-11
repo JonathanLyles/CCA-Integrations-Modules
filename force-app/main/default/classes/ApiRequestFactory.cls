@@ -33,6 +33,9 @@ public with sharing class ApiRequestFactory {
         } catch (ApiRequestFactoryException e){
             Logger.error(e.getMessage());
             Logger.saveLog();
+        } catch (Exception e){
+            Logger.error(e.getMessage());
+            Logger.saveLog();
         }
         return req;
     }
