@@ -28,11 +28,7 @@ public abstract class ApiCalloutHandler {
         }
     }
 
-    // Shared utility for setting default headers
-    public void setDefaultHeaders(HttpRequest request) {
-        request.setHeader('Content-Type', 'application/json');
-        request.setHeader('Accept', 'application/json');
-    }
+
 
     // Custom exception for callout errors
     public class CalloutException extends Exception {}
